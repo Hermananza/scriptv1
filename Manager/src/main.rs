@@ -293,17 +293,17 @@ fn main_menu(sqlite_conn: &Connection) {
         Command::new("clear").status().unwrap();
         println!("{}", text_to_bold("================= RustyManager ================="));
         println!("------------------------------------------------");
-        println!("| {} {:<16} | {} {:<3} |", text_to_bold("Os:"), os, text_to_bold("Usuarios Criados:"), created);
-        println!("| {} {:<12} | {} {:<4} |", text_to_bold("Versão:"), version, text_to_bold("Usuarios Online:"), online);
+        println!("| {} {:<16} | {} {:<3} |", text_to_bold("Os:"), os, text_to_bold("Jumlah Pengguna:"), created);
+        println!("| {} {:<12} | {} {:<4} |", text_to_bold("Versi: "), version, text_to_bold("Pengguna Online:"), online);
         println!("-----------------------|------------------------");
         println!("| {:<28} | {:<29} |", text_to_bold("CPU:"), text_to_bold("Ram:"));
-        println!("|  - {} {:<8} |  - {} {:<11} |", text_to_bold("Nucleos:"), cpu_cores, text_to_bold("Total:"), ram_total);
-        println!("|  - {} {:<9} |  - {} {:<10} |", text_to_bold("Em uso:"), cpu_usage, text_to_bold("Em uso:"), ram_usage);
+        println!("|  - {} {:<8} |  - {} {:<11} |", text_to_bold("Cpu  :"), cpu_cores, text_to_bold("Total:"), ram_total);
+        println!("|  - {} {:<9} |  - {} {:<10} |", text_to_bold("Digunakan:"), cpu_usage, text_to_bold("Digunakan:"), ram_usage);
         println!("------------------------------------------------");
         let options = vec![
-            "Gerenciar Usuarios",
-            "Gerenciar Conexões",
-            "Ferramentas",
+            "Kelola Pengguna",
+            "Kelola Koneksi",
+            "Peralatan",
         ];
 
         for (i, option) in options.iter().enumerate() {
@@ -311,7 +311,7 @@ fn main_menu(sqlite_conn: &Connection) {
         }
         println!("| 00 - {:<39} |", "Sair");
         println!("------------------------------------------------");
-        println!("\n --> Selecione uma opção:");
+        println!("\n --> Pilih Opsi:");
 
         let mut option = String::new();
         io::stdin().read_line(&mut option).unwrap();
@@ -344,19 +344,19 @@ fn users_menu(sqlite_conn: &Connection) {
         Command::new("clear").status().unwrap();
         
         println!("------------------------------------------------");
-        println!("|              {}              |", text_to_bold("Gerenciar Usuarios"));
+        println!("|              {}              |", text_to_bold("Kelola Pengguna"));
         println!("------------------------------------------------");
         let options = vec![
-            "Criar usuario",
-            "Remover usuario",
+            "Buat Akun",
+            "Hapus Akun",
             "Gerar teste",
-            "Alterar limite",
-            "Alterar validade",
-            "Alterar senha",
-            "Relatorio de usuarios",
-            "Relatorio de expirados",
-            "Relatorio de conectados",
-            "Remover expirados"
+            "Ubah limit",
+            "Ubah validasi",
+            "Ubah Sandi",
+            "Laporan Pengguna",
+            "Laporan Exp",
+            "Laporan Online",
+            "Hapus Exp"
         ];
 
         for (i, option) in options.iter().enumerate() {
